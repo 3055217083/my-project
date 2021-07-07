@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<script src="/static/js/layui/layui.js"></script>
+<script>
+    layui.define(['element', 'layer', 'util', 'table', 'laydate', 'form'],
+        function (exports) {
+            var $ = layui.jquery,
+                table = layui.table,
+                form = layui.form;
+            const pager = {};
+            pager.init = function () {
+                this.output2();
+            }
+            pager.output2 = function (a) {
+                console.log(a);
+            }
+            exports('model1', pager);
+        });
+</script>
+</body>
+</html>
