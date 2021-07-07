@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    //
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "lib": [
+      "esnext",
+      "dom",
+      //
+      "dom.iterable",
+      "scripthost"
+    ],
+    "types": [
+      "vite/client",
+      //
+      "mocha",
+      "chai"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    //
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+//
+  "exclude": [
+    "node_modules"
+  ],
+  "paths": {
+    "@/*": [
+      "src/*"
+    ]
+  }
+}

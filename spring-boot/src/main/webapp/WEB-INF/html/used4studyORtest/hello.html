@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>验证码 懂？</title>
+    <link href="/static/js/layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+
+<h1 th:text="${info}"></h1>
+<div>
+    <!-- <img alt="这是图片" src="/img/001.png"/> -->
+    <img alt="验证码" onclick="src='/defaultKaptcha?d='+new Date()*1" src="/defaultKaptcha"/>
+</div>
+<form action="imgvrifyControllerDefaultKaptcha">
+    <label>
+        <input type="text" name="vrifyCode"/>
+    </label>
+    <input type="submit" value="提交"/>
+</form>
+
+<script src="/static/js/layui/layui.js"></script>
+<script>
+    layui.use(['mymod'], function () {
+        var mymod = layui.mymod
+        //弹出 Hello World!
+        //mymod.hello('World!');
+    })
+</script>
+</body>
+</html>

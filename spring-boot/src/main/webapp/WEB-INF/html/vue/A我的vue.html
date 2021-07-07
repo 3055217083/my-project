@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <script charset="utf-8" src="/static/js/vue/vue.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="app">
+    <label>
+        输入的文本：
+        <input type="text" v-model="message" value="hello">
+    </label>{{message}}
+</div>
+
+<script src="/static/js/vue/vue.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            message: ""
+        }
+    });
+</script>
+</body>
+</html>
+

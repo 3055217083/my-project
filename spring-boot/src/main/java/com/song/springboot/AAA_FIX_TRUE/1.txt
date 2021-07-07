@@ -1,0 +1,18 @@
+        http.authorizeRequests()
+                .antMatchers("/", "/toLogin").permitAll()
+                .antMatchers("/level1/**").hasRole("vip1")
+                .antMatchers("/level2/**").hasRole("vip2")
+                .antMatchers("/level3/**").hasRole("vip3");
+        //没有权限，默认到登录页面
+        http.formLogin()
+                .loginPage("/toLogin")//登录页面设置
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .loginProcessingUrl("/login")//登录访问路径
+                .defaultSuccessUrl("/index");//登陆成功后的路径
+        //防止网站攻击
+        http.csrf().disable();//登出可能存在失败的原因
+        //注销功能
+        http.logout().logoutSuccessUrl("/");
+        //开启记住我功能
+        http.rememberMe().rememberMeParameter("remember");
