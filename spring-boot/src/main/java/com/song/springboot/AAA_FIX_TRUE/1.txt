@@ -1,3 +1,4 @@
+spring security 方法
         http.authorizeRequests()
                 .antMatchers("/", "/toLogin").permitAll()
                 .antMatchers("/level1/**").hasRole("vip1")

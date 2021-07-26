@@ -1,5 +1,8 @@
 #spring#
 spring:
+  application:
+    name: spring-boot
+    #jap#
   jpa:
     show-sql: true
   # redis#
