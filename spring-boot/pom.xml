@@ -194,7 +194,13 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
             <version>2.0.2.RELEASE</version>
         </dependency>
-
+        <!--springboot 注解处理器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>2.3.12.RELEASE</version>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
@@ -207,6 +213,11 @@
                         <exclude>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                        </exclude>
+                        <exclude>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-configuration-processor</artifactId>
+                            <version>2.3.12.RELEASE</version>
                         </exclude>
                     </excludes>
                 </configuration>
@@ -221,21 +232,21 @@
                     <include>**/*.xml</include>
                 </includes>
             </resource>
-            <!--保留resources包下的所有文件-->
+            <!--保留resources包下的所有文件,注册resources为资源目录-->
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>**/**</include>
                 </includes>
             </resource>
-            <!--注册webapp目录为资源目录-->
-            <resource>
+            <!--注册webapp目录为资源目录，webapp不注册为资源目录-->
+            <!--<resource>
                 <directory>src/main/webapp</directory>
                 <targetPath>META-INF/resources</targetPath>
                 <includes>
                     <include>**/**</include>
                 </includes>
-            </resource>
+            </resource>-->
         </resources>
     </build>
 

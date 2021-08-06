@@ -39,13 +39,21 @@ public class HelloController {
     DefaultKaptcha defaultKaptcha;
 
     @ResponseBody
-    @GetMapping(value = {"/", "/f"})
+    @GetMapping(value = {"/in", "/f"})
     Book getHello() throws Exception {
         if (false) {
             NameEnum nameEnum = NameEnum.SONG_ZHI_XIAN;
             throw new Exception("12321");
         }
         return helloService.selectAll();
+    }
+
+    @GetMapping(value = {"/"}, produces = {"text/html;charset=UTF-8;", "application/json;charset=UTF-8;"})
+    @ResponseBody
+    String index(HttpServletRequest request, HttpServletResponse response) {
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
+        return "首页";
     }
 
     @Secured({"ROLE_1", "ROLE_2"})
@@ -106,10 +114,10 @@ public class HelloController {
     }
 
     @RequestMapping("/imgvrifyControllerDefaultKaptcha")
-    public String imgvrifyControllerDefaultKaptcha(HttpServletRequest httpServletRequest, Model model){
+    public String imgvrifyControllerDefaultKaptcha(HttpServletRequest httpServletRequest, Model model) {
         String captchaId = (String) httpServletRequest.getSession().getAttribute("vrifyCode");
         String parameter = httpServletRequest.getParameter("vrifyCode");
-        System.out.println("Session  vrifyCode "+captchaId+" form vrifyCode "+parameter);
+        System.out.println("Session  vrifyCode " + captchaId + " form vrifyCode " + parameter);
 
         if (!captchaId.equals(parameter)) {
             model.addAttribute("info", "错误的验证码");

@@ -2,7 +2,6 @@ package com.song.springboot.controller.used4study或者test;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 public class RouterController {
 
     @RequestMapping({"/", "/index"})
