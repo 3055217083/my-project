@@ -26,8 +26,8 @@ public class test {
         }};
         List<String> stringList = Arrays.asList("a", "b", "c");
         MyVO myVO = new MyVO(name, xiaoMing);
-        myVO.getXiaoMing().removeIf(xiaoMing2 -> xiaoMing2.equals("2"));
-        myVO.getXiaoMing().stream().filter(ming -> ming.equals("a")).collect(Collectors.toList());
+        // myVO.getXiaoMing().removeIf(xiaoMing2 -> xiaoMing2.equals("2"));
+        myVO.setXiaoMing(myVO.getXiaoMing().stream().filter(ming -> ming.equals("a")).collect(Collectors.toList()));
         System.out.println(myVO);
     }
 }

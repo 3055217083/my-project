@@ -35,8 +35,8 @@ public class HttpClientUtil {
 
 	/**
 	 * 发送Post请求
+	 * @return :
 	 * @params : url params encoding connectTimeOut
-	 * @returns :
 	 */
 	public static String sendPost(String url, Map<String, String> params, String encoding, int connectTimeOut) {
 		// 创建HttpClientBuilder
@@ -56,8 +56,7 @@ public class HttpClientUtil {
 				List<NameValuePair> formParams = new ArrayList<>();
 				for (Entry<String, String> param : params.entrySet()) {
 					if (null != param.getValue()) {
-						formParams.add(new BasicNameValuePair(param.getKey(), param
-								.getValue()));
+						formParams.add(new BasicNameValuePair(param.getKey(), param.getValue()));
 					}
 				}
 				httpPost.setEntity(new UrlEncodedFormEntity(formParams, encoding));
@@ -84,11 +83,10 @@ public class HttpClientUtil {
 
 	/**
 	 * 发送Get请求
+	 * @return :
 	 * @params : url params encoding connectTimeOut
-	 * @returns :
 	 */
-	public static String sendGet(String url, Map<String, String> params,
-								 String encoding, int connectTimeOut) {
+	public static String sendGet(String url, Map<String, String> params, String encoding, int connectTimeOut) {
 		// 创建HttpClientBuilder
 		HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
 		// HttpClient
@@ -123,13 +121,13 @@ public class HttpClientUtil {
 
 	/**
 	 * 使用httpClient发送Json参数
+	 * @return :
 	 * @params :
-	 * @returns :
 	 */
 	public static void httpPostWithJSON(String url, String json) {
 		// 创建默认的httpClient实例.
 		CloseableHttpClient httpClient = HttpClients.createDefault();
-		// 创建httppost
+		// 创建httpPost
 		HttpPost httpPost = new HttpPost(url);
 		httpPost.addHeader(HTTP.CONTENT_TYPE, APPLICATION_JSON);
 		// 将JSON进行UTF-8编码,以便传输中文
@@ -162,18 +160,17 @@ public class HttpClientUtil {
 
 	/**
 	 * 发送Post请求
+	 * @return :
 	 * @params : url,param,encoding
-	 * @returns :
 	 */
-	public static String sendPost(String url, Map<String, String> param,
-								  String encoding) {
+	public static String sendPost(String url, Map<String, String> param, String encoding) {
 		return sendPost(url, param, encoding, 3000);
 	}
 
 	/**
 	 * 发送Post请求
+	 * @return :
 	 * @params : url,param
-	 * @returns :
 	 */
 	public static String sendPost(String url, Map<String, String> param) {
 		return sendPost(url, param, "UTF-8", 3000);
@@ -181,18 +178,17 @@ public class HttpClientUtil {
 
 	/**
 	 * 发送Get请求
+	 * @return :
 	 * @params :  param encoding
-	 * @returns :
 	 */
-	public static String sendGet(String url, Map<String, String> param,
-								 String encoding) {
+	public static String sendGet(String url, Map<String, String> param, String encoding) {
 		return sendGet(url, param, encoding, 3000);
 	}
 
 	/**
 	 * 发送Get请求
+	 * @return :
 	 * @params : url param
-	 * @returns :
 	 */
 	public static String sendGet(String url, Map<String, String> param) {
 		return sendGet(url, param, "UTF-8", 3000);

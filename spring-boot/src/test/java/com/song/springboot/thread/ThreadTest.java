@@ -5,6 +5,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -41,5 +44,19 @@ public class ThreadTest {
 
     static class Person {
         String name = "zhangsan";
+    }
+
+    @Test
+    void test2() {
+        CompletableFuture future = CompletableFuture.supplyAsync(() -> {
+            System.out.println("supplyAsync");
+            return 1 + 2;
+        }, new ThreadPoolExecutor(1, 2, 3000,
+                TimeUnit.MILLISECONDS, new SynchronousQueue<>()) {
+        }).handleAsync((response, e) -> {
+            System.out.println("handleAsync" + response);
+            return 0;
+        });
+        System.out.println(future);
     }
 }

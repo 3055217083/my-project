@@ -21,7 +21,7 @@ public class MQtest {
 
     @Test
     void test2() throws Exception {
-        Order order = new Order("1234", "宋志贤", System.currentTimeMillis() + "#" + UUID.randomUUID().toString());
+        Order order = new Order("1234", "szx", System.currentTimeMillis() + "#" + UUID.randomUUID().toString());
         orderSender.send(order);
     }
 }
