@@ -30,4 +30,11 @@ public class test {
         myVO.setXiaoMing(myVO.getXiaoMing().stream().filter(ming -> ming.equals("a")).collect(Collectors.toList()));
         System.out.println(myVO);
     }
+
+    @Test
+    void test3() {
+        int 你在干什么呢 = 123;
+        int 我没干嘛呀 = 12;
+        System.out.println(你在干什么呢 / 我没干嘛呀);
+    }
 }
