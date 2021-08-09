@@ -78,12 +78,6 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
             <version>2.3.12.RELEASE</version>
         </dependency>
-        <!--验证码-->
-        <dependency>
-            <groupId>com.github.penggle</groupId>
-            <artifactId>kaptcha</artifactId>
-            <version>2.3.2</version>
-        </dependency>
         <!--log4j2-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -209,6 +203,8 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <skip>true</skip>
+                    <fork>true</fork>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -222,6 +218,22 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
         </plugins>
 
         <resources>
@@ -232,21 +244,29 @@
                     <include>**/*.xml</include>
                 </includes>
             </resource>
-            <!--保留resources包下的所有文件,注册resources为资源目录-->
+            <!--保留resources包下的所有文件-->
             <resource>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
                 <includes>
-                    <include>**/**</include>
+                    <include>*.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*</include>
                 </includes>
             </resource>
             <!--注册webapp目录为资源目录，webapp不注册为资源目录-->
-            <!--<resource>
+            <resource>
                 <directory>src/main/webapp</directory>
                 <targetPath>META-INF/resources</targetPath>
                 <includes>
                     <include>**/**</include>
                 </includes>
-            </resource>-->
+            </resource>
         </resources>
     </build>
 
