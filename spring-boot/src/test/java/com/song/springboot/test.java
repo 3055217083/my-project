@@ -23,6 +23,7 @@ public class test {
             add("a");
             add("b");
             add("c");
+            add("c");
         }};
         List<String> stringList = Arrays.asList("a", "b", "c");
         MyVO myVO = new MyVO(name, xiaoMing);
