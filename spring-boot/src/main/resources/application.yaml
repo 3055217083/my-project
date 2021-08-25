@@ -59,25 +59,34 @@ spring:
   thymeleaf:
     cache: false
     #server#
+  profiles:
+    include: other
 server:
   port: 8081
   servlet:
     encoding:
       charset: UTF-8
     context-path: /
-# actuator #
+# actuator 监控
+#Actuator就是一款可以帮助你监控系统数据的框架,其可以监控很多很多的系统数据,它有对应用系统的自省和监控的集成功能，可以查看应用配置的详细信息#
 management:
   endpoint:
+    #允许应用程序正常关闭
     shutdown:
       enabled: true
   endpoints:
     web:
+      #在spring boot 2.0以后,actuator默认只开启了info和health两个端点,要想使用其他的端点,需要在application.yml中打开
       exposure:
-        include: '*'
+        include: "*"
 #log4j2配置文件#
 logging:
   config: classpath:log4j2.xml
-
+---
+spring:
+  profiles: no2
+server:
+  port: 8082
 
 
 
