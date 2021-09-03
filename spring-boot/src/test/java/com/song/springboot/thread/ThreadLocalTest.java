@@ -3,10 +3,7 @@ package com.song.springboot.thread;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * @author : zhixian.song
@@ -53,6 +50,10 @@ public class ThreadLocalTest {
             System.out.println("handleAsync" + response);
             return 0;
         });
-        System.out.println(future);
+        try {
+            System.out.println(future.get());
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }

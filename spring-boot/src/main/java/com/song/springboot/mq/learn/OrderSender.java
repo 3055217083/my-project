@@ -1,4 +1,4 @@
-package com.song.springboot.mq;
+package com.song.springboot.mq.learn;
 
 import com.song.springboot.entity.learn.Order;
 import org.springframework.amqp.rabbit.connection.CorrelationData;

@@ -1,6 +1,8 @@
 package com.song.springboot;
 
 import com.google.gson.*;
+import com.song.springboot.service.csv.Template;
+import com.song.springboot.service.csv.csv文件转化java对象的类_懂了吗;
 import com.song.springboot.utils.HttpClientUtil;
 import com.song.springboot.viewObject.MyVO;
 import org.junit.jupiter.api.DisplayName;
@@ -96,7 +98,7 @@ public class test {
         Gson gson = new Gson();
         gson.toJson(1);            // ==> 1
         gson.toJson("abcd");       // ==> "abcd"
-        gson.toJson(new Long(10)); // ==> 10
+        gson.toJson(10L); // ==> 10
         int[] values = {1};
         gson.toJson(values);       // ==> [1]
 
@@ -107,5 +109,11 @@ public class test {
         Boolean false2 = gson.fromJson("false", Boolean.class);
         String str = gson.fromJson("\"abc\"", String.class);
         String[] anotherStr = gson.fromJson("[\"abc\"]", String[].class);
+    }
+
+    @Test
+    void test9() {
+        csv文件转化java对象的类_懂了吗
+                .csvToBeanList("C:\\Users\\zhixian.song\\Desktop\\template.csv",",",true, Template.class,"GBK");
     }
 }

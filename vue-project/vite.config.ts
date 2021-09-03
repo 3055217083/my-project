@@ -9,13 +9,9 @@ export default defineConfig(() => {
     esbuild: {
       // target: 'es2015'
     },
-
     alias: {
       '@': resolve(__dirname, './src'),
       'views': resolve(__dirname, './src/views'),
-      'router': resolve(__dirname, './src/router'),
-      'store': resolve(__dirname, './src/store'),
-      'vue': 'vue/dist/vue.esm-bundler.js'
     },
     /*支持运行时编译*/
     runtimeCompiler: true,
@@ -29,6 +25,7 @@ export default defineConfig(() => {
           changeOrigin: true,
         },*/
       }
+      ,open: true
     },
     optimizeDeps: {
 

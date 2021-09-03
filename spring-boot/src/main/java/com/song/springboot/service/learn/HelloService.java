@@ -1,5 +1,6 @@
 package com.song.springboot.service.learn;
 
+import com.song.springboot.annotation.MyLog;
 import com.song.springboot.entity.learn.Book;
 import com.song.springboot.mapper.learn.HelloMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class HelloService {
     @Autowired
     HelloMapper helloMapper;
 
+    @MyLog
     public Book selectAll(){
        return helloMapper.selectAll();
     }

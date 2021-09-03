@@ -2,7 +2,7 @@ package com.song.springboot.mqTest;
 
 
 import com.song.springboot.entity.learn.Order;
-import com.song.springboot.mq.OrderSender;
+import com.song.springboot.mq.learn.OrderSender;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,7 @@
 package com.song.springboot.config;
 
 import com.song.springboot.config.interceptor.MyInterceptor;
+import com.song.springboot.config.interceptor.MyInterceptor2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,10 +25,17 @@ public class MyMvcConfigurer extends WebMvcConfigurationSupport {
 
     @Autowired
     MyInterceptor myInterceptor;
-
+    @Autowired
+    MyInterceptor2 myInterceptor2;
+    /**
+     * 重写此方法以添加Spring MVC拦截器，用于控制器调用的预处理和后处理。
+     * @params :
+     * @returns :
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(myInterceptor).addPathPatterns("/**").excludePathPatterns("/hello");
+        registry.addInterceptor(myInterceptor2).addPathPatterns("/**");
     }
 
     //jsp页面的视图解析器，解析到webapp下的jsp/目录下查找对应的jsp页面

@@ -2,7 +2,7 @@ package com.song.springboot.mybatisPlus;
 
 import com.song.springboot.entity.learn.User;
 import com.song.springboot.outcall.test;
-import com.song.springboot.service.MyServiceImpl;
+import com.song.springboot.service.learn.MyServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

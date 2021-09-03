@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
         , "com.song.springboot.exception"
         , "com.song.springboot.mq"
         , "com.song.springboot.mapper"
+        , "com.song.springboot.annotation"
 })
 public class Config {
 }

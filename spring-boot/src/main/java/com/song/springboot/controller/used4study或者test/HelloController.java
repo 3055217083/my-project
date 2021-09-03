@@ -3,9 +3,11 @@ package com.song.springboot.controller.used4study或者test;
 import com.song.springboot.AAA_TWO2222222222.燃えろ俺の小宇宙よ.NameEnum;
 import com.song.springboot.entity.learn.Book;
 import com.song.springboot.service.learn.HelloService;
+import com.song.springboot.utils.ProjectProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 /**
  * @author : zhixian.song
@@ -23,6 +26,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 public class HelloController {
+    @Value("${env}")
+    String env;
 
     private static final Logger log = LoggerFactory.getLogger(HelloController.class);
 
@@ -32,7 +37,7 @@ public class HelloController {
     @ResponseBody
     @GetMapping(value = {"/in", "/f"})
     Book getHello() throws Exception {
-        if (true) {
+        if (false) {
             NameEnum nameEnum = NameEnum.SONG_ZHI_XIAN;
             throw new Exception("12321");
         }
@@ -42,6 +47,16 @@ public class HelloController {
     @GetMapping(value = {"/"}, produces = {"text/html;charset=UTF-8;", "application/json;charset=UTF-8;"})
     @ResponseBody
     String index(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println(env);
+
+        for (Map.Entry<Object, Object> entry : ProjectProperties.getProperties().entrySet()) {
+            String name = (String) entry.getKey();
+            Object value = entry.getValue();
+            System.out.format("%s::::::::::::::::::::::::::::::::%s",name,value);
+            System.out.println();
+        }
+
+        request.getRequestURI();
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
         return "首页";

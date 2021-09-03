@@ -19,7 +19,7 @@ public class Application {
         System.setProperty("APP_NAME", "api");
         ApplicationContext applicationContext = SpringApplication.run(Application.class, args);
         for (String name : applicationContext.getBeanDefinitionNames()) {
-            System.out.println(name);
+            System.out.println("返回Bean工厂定义的所有BeanName:"+name);
         }
     }
 }

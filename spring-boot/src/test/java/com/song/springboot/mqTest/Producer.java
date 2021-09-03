@@ -9,7 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * 生产者
- * @author Tu_Yooo
+ * @author szx
  * @Date 2021/7/27 15:10
  */
 public class Producer {
