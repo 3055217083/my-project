@@ -7,7 +7,10 @@ import java.util.concurrent.*;
 
 /**
  * @author : zhixian.song
- * @description : TODO
+ * @description : new ThreadPoolExecutor
+ * 线程池必须手动通过 ThreadPoolExecutor 的构造函数来声明
+ * ，避免使用Executors  类的 newFixedThreadPool 和 newCachedThreadPool
+ * ，因为可能会有 OOM 的风险。
  * @time : 2021.8.5 13:52
  */
 @SpringBootTest

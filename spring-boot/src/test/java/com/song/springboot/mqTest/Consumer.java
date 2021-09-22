@@ -35,15 +35,12 @@ public class Consumer {
             String queueName = "queue1"; //队列名称
 
             //消费消息
+            //接收消息失败时执行
             channel.basicConsume(queueName, true, new DeliverCallback() { //接收消息成功时执行
                 public void handle(String consumerTag, Delivery message) throws IOException {
                     System.out.println("接收消息:" + new String(message.getBody(), StandardCharsets.UTF_8));
                 }
-            }, new CancelCallback() { //接收消息失败时执行
-                public void handle(String consumerTag) throws IOException {
-                    System.out.println("接收消息失败");
-                }
-            });
+            }, consumerTag -> System.out.println("接收消息失败"));
             System.in.read();//阻断 不往下执行
         } catch (Exception e) {
             e.printStackTrace();

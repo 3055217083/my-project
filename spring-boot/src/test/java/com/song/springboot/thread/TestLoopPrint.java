@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author : zhixian.song
- * @description : TODO
+ * @description : 三个线程循环打印 A,B,C
  * @time : 2021/7/5 9:56
  */
 public class TestLoopPrint {

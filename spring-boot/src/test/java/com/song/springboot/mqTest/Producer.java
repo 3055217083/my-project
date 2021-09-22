@@ -34,7 +34,7 @@ public class Producer {
             // 4.通过创建交换机 队列 绑定关系 路由Key 发生消息 和接收消息
             String queueName = "queue1"; //队列名称
 
-            /**
+            /*
              * @params1 队列名称
              * @params2 是否持久化
              * @params3 是否具有排他性 是否独占队列
@@ -45,7 +45,7 @@ public class Producer {
             // 5.准备消息
             String message = "Hello,RabbitMQ!";
             // 6.发生消息给队列
-            /**
+            /*
              * @params1 交换机
              * @params2 队列名 路由Key
              * @params3 消息是否持久化
@@ -74,7 +74,5 @@ public class Producer {
                 }
             }
         }
-
-
     }
 }

@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 /**
  * @author : zhixian.song
- * @description : TODO
+ * @description : Executors.newFixedThreadPool 方式创建线程池
  * @time : 2021/7/5 9:52
  */
 public class ThreadsTest {

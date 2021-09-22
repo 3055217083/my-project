@@ -7,9 +7,15 @@ import com.song.springboot.utils.HttpClientUtil;
 import com.song.springboot.viewObject.MyVO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
@@ -26,6 +32,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest
 @DisplayName("╯°□°）╯")
 public class test {
+    @Autowired
+    private ApplicationContext applicationContext;
     Gson gson = new Gson();
     @Test
     void test1() {
@@ -115,5 +123,39 @@ public class test {
     void test9() {
         csv文件转化java对象的类_懂了吗
                 .csvToBeanList("C:\\Users\\zhixian.song\\Desktop\\template.csv",",",true, Template.class,"GBK");
+    }
+
+    @Test
+    void test10() {
+        MultipartFile file = null;
+        ArrayList<Template> csvFileList = new ArrayList<>();
+        InputStreamReader in = null;
+        String s = null;
+        try {
+            in = new InputStreamReader(file.getInputStream(), "utf-8");
+            BufferedReader bufferedReader = new BufferedReader(in);
+            String line = null;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] split = line.split(",");
+                Template csvFile = new Template();
+                csvFile.setScheduleNo(splitResult(split[0]));
+                csvFile.setStyleNo(Integer.valueOf(split[1]));
+                csvFile.setPrice(BigDecimal.valueOf(Double.parseDouble(splitResult(split[2]))));
+                csvFile.setStore(splitResult(split[3]));
+                csvFile.setRemark(splitResult(split[4]));
+                csvFileList.add(csvFile);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private static String splitResult(String once) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < once.length(); i++) {
+            if (once.charAt(i) != '"') {
+                result.append(once.charAt(i));
+            }
+        }
+        return result.toString();
     }
 }
