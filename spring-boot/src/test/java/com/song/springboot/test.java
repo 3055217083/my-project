@@ -158,4 +158,17 @@ public class test {
         }
         return result.toString();
     }
+    @Test
+    void test11 () {
+        //定义
+        LinkedList<Integer> deque = new LinkedList<>();
+
+        deque.addFirst(1);	//在队列头部添加
+        deque.pollFirst();	//删除头部第一个元素（等价于poll()）
+        deque.peekFirst();	//获取头部第一个元素（等价于peek()）
+
+        deque.addLast(1); 	//在队列尾部添加（等价于add()）
+        deque.pollLast();	//删除尾部第一个元素
+        deque.peekLast();	//获取尾部第一个元素
+    }
 }
