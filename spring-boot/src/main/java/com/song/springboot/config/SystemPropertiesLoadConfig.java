@@ -1,7 +1,7 @@
 package com.song.springboot.config;
 
 
-import com.song.springboot.utils.ProjectProperties;
+import com.song.springboot.utils.ProjectPropertiesUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -28,7 +28,7 @@ public class SystemPropertiesLoadConfig {
         try {
         	Properties properties = new Properties();
             properties.load(applicationResource.getInputStream());
-            ProjectProperties.addProperty(properties);
+            ProjectPropertiesUtil.addProperty(properties);
         } catch (IOException ignored) {
         }
         return true;

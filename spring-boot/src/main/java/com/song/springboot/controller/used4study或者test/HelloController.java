@@ -3,7 +3,7 @@ package com.song.springboot.controller.used4study或者test;
 import com.song.springboot.AAA_TWO2222222222.燃えろ俺の小宇宙よ.NameEnum;
 import com.song.springboot.entity.learn.Book;
 import com.song.springboot.service.learn.HelloService;
-import com.song.springboot.utils.ProjectProperties;
+import com.song.springboot.utils.ProjectPropertiesUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +49,10 @@ public class HelloController {
     String index(HttpServletRequest request, HttpServletResponse response) {
         System.out.println(env);
 
-        for (Map.Entry<Object, Object> entry : ProjectProperties.getProperties().entrySet()) {
+        /**
+         * 显示配置文件所有属性
+         */
+        for (Map.Entry<Object, Object> entry : ProjectPropertiesUtil.getProperties().entrySet()) {
             String name = (String) entry.getKey();
             Object value = entry.getValue();
             System.out.format("%s::::::::::::::::::::::::::::::::%s",name,value);
