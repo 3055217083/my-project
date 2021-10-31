@@ -1,6 +1,8 @@
 package com.song.springboot;
 
+import com.google.common.base.Objects;
 import com.google.gson.*;
+import com.song.springboot.service.MongoDbService;
 import com.song.springboot.service.csv.Template;
 import com.song.springboot.service.csv.csv文件转化java对象的类_懂了吗;
 import com.song.springboot.utils.HttpClientUtil;
@@ -13,10 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -35,6 +34,7 @@ public class test {
     @Autowired
     private ApplicationContext applicationContext;
     Gson gson = new Gson();
+
     @Test
     void test1() {
         assertTrue(true, "错误");
@@ -122,7 +122,7 @@ public class test {
     @Test
     void test9() {
         csv文件转化java对象的类_懂了吗
-                .csvToBeanList("C:\\Users\\zhixian.song\\Desktop\\template.csv",",",true, Template.class,"GBK");
+                .csvToBeanList("C:\\Users\\zhixian.song\\Desktop\\template.csv", ",", true, Template.class, "GBK");
     }
 
     @Test
@@ -149,6 +149,7 @@ public class test {
             e.printStackTrace();
         }
     }
+
     private static String splitResult(String once) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < once.length(); i++) {
@@ -158,17 +159,48 @@ public class test {
         }
         return result.toString();
     }
+
     @Test
-    void test11 () {
+    void test11() {
         //定义
         LinkedList<Integer> deque = new LinkedList<>();
 
-        deque.addFirst(1);	//在队列头部添加
-        deque.pollFirst();	//删除头部第一个元素（等价于poll()）
-        deque.peekFirst();	//获取头部第一个元素（等价于peek()）
+        deque.addFirst(1);    //在队列头部添加
+        deque.pollFirst();    //删除头部第一个元素（等价于poll()）
+        deque.peekFirst();    //获取头部第一个元素（等价于peek()）
 
-        deque.addLast(1); 	//在队列尾部添加（等价于add()）
-        deque.pollLast();	//删除尾部第一个元素
-        deque.peekLast();	//获取尾部第一个元素
+        deque.addLast(1);    //在队列尾部添加（等价于add()）
+        deque.pollLast();    //删除尾部第一个元素
+        deque.peekLast();    //获取尾部第一个元素
+    }
+
+    @Autowired
+    MongoDbService mongoDbService;
+
+    @Test
+    void test12() {
+        System.out.print(mongoDbService.showCollectionNames());
+    }
+
+    static volatile int n = 0;
+
+    @Test
+    void test13() throws Exception {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("D:/123.csv"), "GBK"));
+    }
+/*[6, 6, 5, 5, 4, 4, 3, 3, 2, 2, 2, 1, 1, 1]*/
+    @Test
+    void test14() {
+        List<Integer> theList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2));
+        theList = theList.stream().sorted((a, b) -> {
+            boolean e1 = com.google.common.base.Objects.equal(a, b);
+            boolean e2 = Objects.equal(a, b);
+            if(e1 && !e2) {
+                return -1;
+            }else {
+                return a <= b ? 1:-1;
+            }
+        }).collect(Collectors.toList());
+        System.out.println(theList);
     }
 }

@@ -3,3 +3,9 @@ dist
 target
 yarn.lock
 *.log
+HELP.md
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr

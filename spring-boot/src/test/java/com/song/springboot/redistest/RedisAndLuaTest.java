@@ -19,13 +19,13 @@ public class RedisAndLuaTest {
 
     @Resource
     private DefaultRedisScript<Boolean> redisScript;
-    @Resource
-    private StringRedisTemplate stringRedisTemplate;
-
     @Test
     public void lua() {
         List<String> keys = Arrays.asList("testLua", "hello lua");
         Boolean execute = stringRedisTemplate.execute(redisScript, keys, "100");
         assert execute != null;
     }
+
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
 }

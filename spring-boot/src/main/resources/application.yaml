@@ -5,6 +5,9 @@ spring:
     #jpa#
   jpa:
     show-sql: false
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/admin
   # redis#
   redis:
     host: 127.0.0.1
