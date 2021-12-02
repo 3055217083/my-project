@@ -15,7 +15,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -182,13 +185,6 @@ public class test {
         System.out.print(mongoDbService.showCollectionNames());
     }
 
-    static volatile int n = 0;
-
-    @Test
-    void test13() throws Exception {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("D:/123.csv"), "GBK"));
-    }
-/*[6, 6, 5, 5, 4, 4, 3, 3, 2, 2, 2, 1, 1, 1]*/
     @Test
     void test14() {
         List<Integer> theList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2));
@@ -202,5 +198,23 @@ public class test {
             }
         }).collect(Collectors.toList());
         System.out.println(theList);
+    }
+
+    @Test
+    void test15() {
+    }
+
+    public static void main(String[] args) {
+        TimerTask task = new TimerTask() {
+            public void run() {
+                System.out.println("当前时间: " + new Date() + "n" +
+                        "线程名称: " + Thread.currentThread().getName());
+            }
+        };
+        System.out.println("当前时间: " + new Date() + "n" +
+                "线程名称: " + Thread.currentThread().getName());
+        Timer timer = new Timer("Timer");
+        long delay = 1000L;
+        timer.schedule(task, delay);
     }
 }

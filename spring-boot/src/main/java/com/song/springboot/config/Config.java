@@ -19,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
         , "com.song.springboot.mq"
         , "com.song.springboot.mapper"
         , "com.song.springboot.annotation"
+        , "com.song.springboot"
 })
 public class Config {
 }
