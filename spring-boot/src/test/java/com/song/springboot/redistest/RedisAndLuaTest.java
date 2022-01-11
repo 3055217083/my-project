@@ -15,12 +15,12 @@ import java.util.List;
  * @time : 2021.8.3 16:48
  */
 @SpringBootTest
-public class RedisAndLuaTest {
+class RedisAndLuaTest {
 
     @Resource
     private DefaultRedisScript<Boolean> redisScript;
     @Test
-    public void lua() {
+    void lua() {
         List<String> keys = Arrays.asList("testLua", "hello lua");
         Boolean execute = stringRedisTemplate.execute(redisScript, keys, "100");
         assert execute != null;
