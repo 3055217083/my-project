@@ -3,6 +3,9 @@ package com.song.springboot2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author zhixian.song
+ */
 @SpringBootApplication
 public class SpringBoot2Application {
 
