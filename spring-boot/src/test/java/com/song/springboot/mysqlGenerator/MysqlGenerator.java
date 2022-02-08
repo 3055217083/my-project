@@ -49,11 +49,11 @@ public class MysqlGenerator {
         mpg.setGlobalConfig(gc);
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/thebestdatabaseintheworld?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://db04.beta1.fn:3306/rt_point?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setUsername("su_rt_point");
+        dsc.setPassword("h3xce4fdpe");
         mpg.setDataSource(dsc);
         // 包配置
         PackageConfig pc = new PackageConfig();
@@ -63,7 +63,7 @@ public class MysqlGenerator {
         pc.setEntity("com.song.springboot.entity");
         // pc.setController("com.song.springboot.controller");
         pc.setMapper("com.song.springboot.mapper");
-        pc.setXml("com.song.springboot.mapper");
+        //pc.setXml("com.song.springboot.mapper");
         mpg.setPackageInfo(pc);
         // 自定义配置
         InjectionConfig cfg = new InjectionConfig() {
