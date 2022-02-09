@@ -14,6 +14,7 @@ import java.util.Properties;
 
 /**
  * 配置容器
+ * @author zhixian.song
  * @params :
  * @returns :
  */
