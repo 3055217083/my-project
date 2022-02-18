@@ -21,6 +21,13 @@ public class ThreadLocalTest {
 
     static ThreadLocal<Person> tl = new ThreadLocal<>();
 
+    /**
+     * *****************************
+     * 无任何风险，代码想怎样写就怎样写
+     * *****************************
+     * @params :
+     * @returns :
+     */
     @Test
     void test1() {
         new Thread(() -> {

@@ -36,6 +36,13 @@ public class MyTest {
         long begin = System.currentTimeMillis(); //执行前计算据1970年毫秒数
         System.out.println(13);
         myService.save(new User("SB"));
+        /*List<List<String>> 数据 = Lists.partition(itemNoList, 100);
+        ForkJoinTask<List<String>> joinTask = forkJoinPool.submit(() -> 数据
+                .parallelStream()
+                .map(d -> iRtGoodsApiClient.getGoodsStatus(new GoodsStatusParamVo(d, store)))
+                .collect(Collectors.toList()));
+                List<String> resultList = joinTask.get(10, TimeUnit.MINUTES);
+                 */
         long end = System.currentTimeMillis(); //执行完后计算据1970年毫秒数
         System.out.println("耗费时长" + (end - begin) + "毫秒");
     }

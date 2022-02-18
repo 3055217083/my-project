@@ -41,6 +41,8 @@ public class test {
     @Test
     void test1() {
         assertTrue(true, "错误");
+        System.out.println(
+        );
         String name = "123";
         List<String> xiaoMing = new ArrayList<String>() {{
             add("a");
@@ -202,6 +204,13 @@ public class test {
 
     @Test
     void test15() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        numbers.parallelStream()
+                .forEach(System.out::println);
+    }
+
+    @Test
+    void test16() {
     }
 
     public static void main(String[] args) {
